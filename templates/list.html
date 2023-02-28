@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>list_of</title>
+</head>
+<body>
+<h1>Добро пожаловать, вот список работ</h1>
+{% if list_type == 1 %}
+    <ol>
+        {% for el in list %}
+        <li>{{ el }}</li>
+        {% endfor %}
+    </ol>
+    {% elif list_type == 2 %}
+    <ul>
+        {% for el in list %}
+        <li>{{ el }}</li>
+        {% endfor %}
+    </ul>
+
+    {% else %}
+    <h2>Проверьте параметры на правильность</h2>
+    {% endif %}
+</body>
+</html>
