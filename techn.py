@@ -41,5 +41,21 @@ def work(workk):
         return render_template('works.html', wurk="научные", image='/static/p1.jpg')
 
 
+@app.route('/list_prof/<dependant>')
+def list_prof(dependant):
+    param = {}
+    param["list"] = ['дворник', 'уборщик', 'сантехник', 'специалист по атомной физике', 'врач', 'инженер',
+                     'программист', 'исследователь организмов', 'боксер', 'строитель', 'тестировщик']
+    if "ol" == dependant:
+        factor = 1
+    elif "ul" == dependant:
+        factor = 2
+    else:
+        factor = 3
+    param["list_type"] = factor
+    print(factor)
+    return render_template('list.html', **param)
+
+
 if __name__ == '__main__':
     app.run(port=8080, host='127.0.0.1')
