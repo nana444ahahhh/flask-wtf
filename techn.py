@@ -57,5 +57,14 @@ def list_prof(dependant):
     return render_template('list.html', **param)
 
 
+@app.route('/answer')
+@app.route('/auto_answer')
+def answer():
+    param = {"title": "ответ", "surname": "Ридналов", "name": "Иван", "education": "среднее",
+             "profession": "специалист по починке техники", "sex": "мужчина",
+             "motivation": "зарабатывает на жизнь своим детям и жене", "готовы остаться на марсе? ": True}
+    return render_template('answerer.html', **param)
+
+
 if __name__ == '__main__':
     app.run(port=8080, host='127.0.0.1')
