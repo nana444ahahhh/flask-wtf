@@ -1,0 +1,13 @@
+{% extends "answer_add.html" %}
+
+{% block content %}
+    <ol>
+        <li>Фамилия: {{ surname }}</li>
+        <li>Имя: {{ name }}</li>
+        <li>Образование: {{ education }}</li>
+        <li>Профессия: {{ profession }}</li>
+        <li>Пол: {{ sex }}</li>
+        <li>Мотивация: {{ motivation }}</li>
+        <li>Готовы остаться на Марсе?: {{ ready }}</li>
+    </ol>
+{% endblock %}
