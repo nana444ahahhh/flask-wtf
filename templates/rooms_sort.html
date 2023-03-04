@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style/style_.css') }}"/>
+<body>
+<h1> <div class="alert alert-danger" role="alert">
+                                  Сортировка знаменитостей по каютам
+</div></h1>
+{% set room = "Каюта №" %}
+
+    {% for i in people %}
+    {{ i }} - {{room}}{{ loop.index }} {% if loop.first %}  (капитанская комната) {% endif %}<br>
+    {% endfor %}
+
+</body>
+{% endblock %}
