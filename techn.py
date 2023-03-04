@@ -3,9 +3,31 @@ from flask import render_template
 from flask import Flask
 import json
 import os
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, BooleanField, SubmitField
+from wtforms.validators import DataRequired
+from flask import redirect
 
 app = Flask(__name__)
 from http.server import HTTPServer, CGIHTTPRequestHandler
+SECRET_KEY = os.urandom(32)
+app.config['SECRET_KEY'] = SECRET_KEY
+
+class LoginForm(FlaskForm):
+    username = StringField('id астронавта', validators=[DataRequired()])
+    password = PasswordField('Пароль астронавта', validators=[DataRequired()])
+    username1 = StringField('id капитана', validators=[DataRequired()])
+    password1 = PasswordField('Пароль капитана', validators=[DataRequired()])
+    remember_me = BooleanField('Запомнить меня')
+    submit = SubmitField('Войти')
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+    if form.validate_on_submit():
+        return redirect('/success')
+    return render_template('login.html', title='Авторизация', form=form)
 
 
 @app.route('/')
