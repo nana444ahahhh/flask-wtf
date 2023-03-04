@@ -86,7 +86,11 @@ def answer():
              "profession": "специалист по починке техники", "sex": "мужчина",
              "motivation": "зарабатывает на жизнь своим детям и жене", "готовы остаться на марсе? ": True}
     return render_template('answerer.html', **param)
-
+@app.route('/distribution')
+def distribution():
+    return render_template('rooms_sort.html',
+                           people=["Майкл Джордан", "Майкл Джексон", "Александр Пушкин", "Лев Толстой",
+                                   "Эрнест Хэмингуэй", "Леонардо Дикаприо"])
 
 if __name__ == '__main__':
     app.run(port=8080, host='127.0.0.1')
